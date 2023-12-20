@@ -26,7 +26,6 @@
     --color1: #8420bb ;
 }
 
-
 *{
     margin: 0px;
     padding: 0px;
@@ -147,6 +146,7 @@
     background-color: #140a34;
 }
 /*End of Day Night Mode Switch */
+
 /* Line Between Navbar and Body */
 #StrikeThroughLine{
     margin: auto;
@@ -164,7 +164,14 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-#cont1-item1{
+
+#profile{
+    height: 20rem;
+    width: 20rem;
+    background-color: var(--highlight_1);
+    border-radius: 50%;
+}
+.cont1-item2{
     height: 20rem;
     width: 55rem;
     font-family: "Tilt Neon";
