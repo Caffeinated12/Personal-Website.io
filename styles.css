@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Tilt Neon';
+    src: url('TiltNeon-Regular.woff2') format('woff2'),
+    url('TiltNeon-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[data-theme="light"]{
+    --background_1:white; 
+    --title_text:#db0000;
+    --pointer_text: #de0000;
+    --paragraph_text: #2d270c;
+    --color1: #c6003c;
+    --highlight_1: #f20a50;
+    --backlight_1:#fff7f7
+}
+
+[data-theme="dark"]{
+    --background_1: #1e1324 ;
+    --title_text: #C38200;
+    --pointer_text: #c38200;
+    --paragraph_text: #FFb520;
+    --highlight_1: #560682;
+    --backlight_1: #FFB520;
+    --color1: #8420bb ;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: var(--background_1);
+}
+
+.Navigation{
+    float: left;
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: auto;
+}
+/* Navigation Grid */
+#Nav_Grid{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+/* The Dev Text */
+#Dev{
+    position: relative;
+    padding: 1rem;
+    flex-shrink: 0;
+    min-width: max-content;
+    margin-left: 1rem;
+    float:left;
+    text-decoration: none;
+    color: var(--title_text);
+    font-size: 2.5rem;
+    font-family: 'Tilt Neon';
+}
+/* Space Between Left Text and Right Text in Nav */
+#space{
+    flex-shrink: 3;
+    flex-basis: 100%;
+    color: var(--color1)
+}
+/* About the Navigation Buttons */
+.Nav_Buttons{
+    position: relative;
+    float: right;
+    flex-shrink: 0;
+    min-width:max-content;
+    border-radius: .5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 2rem 0.75rem 2rem;
+    color: var(--pointer_text);
+    text-decoration: none;
+    font-size: larger;
+    font-family: 'Tilt Neon';
+    transition: ease-in;
+}
+/* Dynamic Effects of Nav Bar */
+    /* Setup */
+.Nav_Buttons:hover{
+    transform: skew(-15deg);
+    transition: ease-in 0.2s;
+    background-color: var(--highlight_1) ;
+    Color: var(--backlight_1)
+}
+/* Day Night Mode Switch */
+.switchframe{
+    
+    position: relative;
+    min-width: max-content;
+    padding: 1.75rem 4rem 1.25rem 2rem;    
+}
+.Switch{
+    position: relative;
+    display: inline-block;
+    height: 2rem;
+    width: 4rem;
+}
+.Switch input{
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #e87878;
+    -webkit-transition:  .4s;
+    -moz-transition:  4s;
+    transition: .4s;
+    border-radius: 4rem;
+}
+.slider:before{
+    position: absolute;
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    left: .25rem;
+    bottom: .25rem;
+    background-color: #ea2929;
+    transition: .4s;
+    border-radius: 1.5rem;
+}
+#Theme_Mode:checked + .slider{
+    background-color:#220B6c;
+}
+#Theme_Mode:checked + .slider:before{
+    -webkit-transform: translateX(2rem);
+    -ms-transform: translateX(2rem);
+    transform: translateX(2rem);
+    background-color: #140a34;
+}
+/*End of Day Night Mode Switch */
+/* Line Between Navbar and Body */
+#StrikeThroughLine{
+    margin: auto;
+    width: 50%;
+    background-color: #2d270c;
+    height:1px;
+}
+.Container-1{
+    display: flex;
+    max-height: 40rem;
+    max-width: 110rem;
+    flex-direction: row;
+    margin-top: 10rem;
+    margin-left: 5rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#cont1-item1{
+    height: 20rem;
+    width: 55rem;
+    font-family: "Tilt Neon";
+    font-size: 1.5rem;
+    color: var(--pointer_text);
+}
+#Name{
+    font-weight: bolder;
+    font-size: 3rem;
+}
