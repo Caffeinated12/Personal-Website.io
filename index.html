@@ -9,29 +9,42 @@
     </head>
 
     <body>
-        <div class='Navigation'>
-
-            <nav class = "Nav_Bar">
-                <div id="Nav_Grid">
-                    <div><a id="Dev">The Dev</a></div>
-                    <div id="space"></div>
-                    <div><a class="Nav_Buttons" href="resume.html">Resume</a></div>
-                    <div><a class="Nav_Buttons" href="Projects.html">Projects</a></div>
-                    <div><a class="Nav_Buttons" href="test.html">Contact Me</a></div>
-                    <div class="switchframe">
-                        <label class="Switch">
-                            <input type="checkbox" id="Theme_Mode" clicked>
-                            <span class="slider">
-                            </span>
-                        </label>
-                    </div>
+        <nav class = "NavBarBig">
+            <div class="Nav_Grid">
+                <a id="Dev">The Dev</a>
+                <div id="space"></div>
+                <a class="Nav_Buttons" href="resume.html">Resume</a>
+                <a class="Nav_Buttons" href="Projects.html">Projects</a>
+                <a class="Nav_Buttons" href="test.html">Contact Me</a>
+                <div class="switchframe">
+                    <label class="Switch">
+                        <input type="checkbox" id="Theme_Mode" clicked>
+                        <span class="slider">
+                        </span>
+                    </label>
                 </div>
-                <div id="StrikeThroughLine"> 
+            </div>
+            <div id="StrikeThroughLine"></div> 
+        </nav>
+        <nav class="NavBarSmol">
+            <div class="Nav_Grid">
+                <a id="Dev">The Dev</a>
+                <div class="space"></div>
+                <div class="HambContainer">
+                    <label class="HambCheckbox">
+                        <input type="checkbox" id="NavShow" autocomplete="off">
+                        <span class="HamburgIcon"></span>
+                    </label>
                 </div>
-                
-            </nav>
+            </div>
+            <div class="NavStatus" id="NavSelect">
+                <a class="NavItems" id="navitems" href="resume.html">Resume</a>
+                <a class="NavItems" id="navitems" href="Projects.html">Projects</a>
+                <a class="NavItems" id="navitems" href="test.html">Contact Me</a>
+            </div>
+            <div id="StrikeThroughLine"></div>
+        </nav>
 
-        </div>
         <div class = "Container-1">
             <div class="cont1-item1">
                 <img id="profile" src="Image.png" />
@@ -39,7 +52,6 @@
             <div class="cont1-item2">
                 <p id="Name">Name. Name. name</p>
                 <p> Front-End Developer</p>
-                <br>
                 <br>
                 <p>
                 I first stumbled upon programming years ago in high-school.

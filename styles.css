@@ -33,77 +33,76 @@
     background-color: var(--background_1);
 }
 
-.Navigation{
-    float: left;
-    display: block;
-    overflow: hidden;
-    position: fixed;
-    top:0;
-    width: 100%;
-    height: auto;
-}
 /* Navigation Grid */
-#Nav_Grid{
-    display: flex;
+.Nav_Grid{
+    display: grid ;
     flex-wrap: nowrap;
-    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    grid-template-columns: auto minmax(0px, 1000px) auto auto auto auto;
+    grid-row: auto;
+    column-gap: 10px;
 }
-
 /* The Dev Text */
 #Dev{
-    position: relative;
-    padding: 1rem;
-    flex-shrink: 0;
-    min-width: max-content;
-    margin-left: 1rem;
-    float:left;
+    height: 50px;
+    width: 160px;
+    min-width: 170px;
+    padding: 5px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    align-self: end;
+    justify-self: center;
     text-decoration: none;
     color: var(--title_text);
-    font-size: 2.5rem;
+    font-size: 45px;
     font-family: 'Tilt Neon';
+    text-wrap: nowrap;
 }
 /* Space Between Left Text and Right Text in Nav */
 #space{
+    min-width: 0px;
+    width: 750px;
+    height: 70px;
     flex-shrink: 3;
-    flex-basis: 100%;
-    color: var(--color1)
 }
 /* About the Navigation Buttons */
 .Nav_Buttons{
-    position: relative;
-    float: right;
-    flex-shrink: 0;
-    min-width:max-content;
-    border-radius: .5rem;
-    margin-left: .5rem;
-    margin-right: .5rem;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    padding: 0.75rem 2rem 0.75rem 2rem;
+    display: flex;
+    height: 50px;
+    width: 210px;
+    min-width: fit-content;
+    align-items: center;
+    justify-content: center;
+    align-self: end;
+    justify-self: center;
+    border-radius: 2rem;
     color: var(--pointer_text);
     text-decoration: none;
-    font-size: larger;
+    font-size: 30px;
     font-family: 'Tilt Neon';
     transition: ease-in;
 }
 /* Dynamic Effects of Nav Bar */
     /* Setup */
 .Nav_Buttons:hover{
-    transform: skew(-15deg);
-    transition: ease-in 0.2s;
+    transition: ease-in-out 0.2s;
     background-color: var(--highlight_1) ;
     Color: var(--backlight_1)
 }
 /* Day Night Mode Switch */
-.switchframe{
-    
-    position: relative;
-    min-width: max-content;
-    padding: 1.75rem 4rem 1.25rem 2rem;    
+.switchframe{   
+    display: flex;
+    align-self: end;
+    align-items: center;
+    justify-content: center; 
+    height: 50px;
+    min-width: 120px;
 }
 .Switch{
     position: relative;
-    display: inline-block;
     height: 2rem;
     width: 4rem;
 }
@@ -122,7 +121,7 @@
     background-color: #e87878;
     -webkit-transition:  .4s;
     -moz-transition:  4s;
-    transition: .4s;
+    transition: cubic-bezier(.36,.69,.66,1.31) .4s;
     border-radius: 4rem;
 }
 .slider:before{
@@ -133,7 +132,7 @@
     left: .25rem;
     bottom: .25rem;
     background-color: #ea2929;
-    transition: .4s;
+    transition: cubic-bezier(.36,.69,.66,1.31) .2s;
     border-radius: 1.5rem;
 }
 #Theme_Mode:checked + .slider{
@@ -145,40 +144,189 @@
     transform: translateX(2rem);
     background-color: #140a34;
 }
+.NavBarSmol{
+    display: none; 
+}
 /*End of Day Night Mode Switch */
+
+/*Navbar for phones */
+@media screen and (max-width: 990px) {
+    .NavBarBig{
+        display: none;
+    }
+    .NavBarSmol{
+        display: block;
+    }
+    .Nav_Grid{
+        display: grid ;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: 70px;
+        grid-template-columns: auto minmax(0px, 1000px) auto;
+        grid-row: auto;
+        column-gap: 10px;
+    }
+    .HambContainer{
+        display: flex;
+        height: 69px;
+        width: 90px;
+        align-items: end;
+        justify-content: center;
+    }
+    .HambCheckbox{
+        height: 45px;
+        width: 50px;
+        position: relative;
+        display: flex;
+    }
+    .HambCheckbox input{
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    .HamburgIcon:before{
+        content: ' ';
+        height: 5px;
+        width: 50px;
+        position: absolute;
+        margin-top: -20px;
+        border-radius: 4px;
+        background-color: var(--title_text);
+        transition: cubic-bezier(.16,1.01,.16,1.01) .4s;
+    }
+    .HamburgIcon{
+        height: 5px;
+        width: 50px;
+        align-self: center;
+        border-radius: 4px;
+        background-color: var(--title_text);
+        transition: cubic-bezier(.16,1.01,.16,1.01) .4s;
+    }
+    .HamburgIcon:after{
+        content: ' ';
+        position: absolute;
+        margin-top: 20px;
+        height: 5px;
+        width: 50px;
+        border-radius: 4px;
+        background-color: var(--title_text);
+        transition: cubic-bezier(.16,1.01,.16,1.01) .4s;
+    }
+    #NavShow:checked + .HamburgIcon:before{
+        transform: rotate(-30deg) translate(-9px, 6.25px);
+        width: 45px
+    }
+    #NavShow:checked + .HamburgIcon:after{
+        transform: rotate(30deg) translate(-9px, -6.25px);
+        width: 45px;
+    }
+    #NavShow:checked + .HamburgIcon{
+        width: 0;
+    }
+    .NavStatus{
+        height: 0px;
+        transition: cubic-bezier(.04,.77,.1,.97) .3s;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .NavItems{
+        height: 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: cubic-bezier(.04,.77,.1,.97) .3s;
+        padding-left: 20px;
+        font-family: "Tilt Neon";
+        text-decoration: none;
+        font-size: 40px;
+        color: var(--pointer_text);
+        align-items: center;
+        overflow: hidden;
+    }
+    
+
+    .NavStatus.Toggled{
+        display: flex;
+        flex-direction: column;
+        height: 180px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .NavItems.Show{
+        opacity: 1;
+        pointer-events: all;
+        display: flex;
+        text-wrap: nowrap;
+        height: 60px;
+        align-items: center;
+        padding-left: 20px;
+        font-family: "Tilt Neon";
+        text-decoration: none;
+        font-size: 40px;
+        color: var(--pointer_text);
+    }
+}
+
+
+
+.NavSelectionHide{
+    display: none;
+    height: 0;
+
+}
 
 /* Line Between Navbar and Body */
 #StrikeThroughLine{
-    margin: auto;
+    margin: 19px auto auto auto;
     width: 50%;
     background-color: #2d270c;
     height:1px;
-}
-.Container-1{
-    display: flex;
-    max-height: 40rem;
-    max-width: 110rem;
-    flex-direction: row;
-    margin-top: 10rem;
-    margin-left: 5rem;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+
 }
 
+/* body and contents */
+.Container-1{
+    top:70; right: 0; left: 0; bottom: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    align-self: center;
+}
+
+.cont1-item1{
+    height: 300px;
+    width: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #profile{
-    height: 20rem;
-    width: 20rem;
+    height: 20vw;
+    width: 20vw;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 250px;
+    max-height:250px ;
     background-color: var(--highlight_1);
     border-radius: 50%;
 }
 .cont1-item2{
-    height: 20rem;
-    width: 55rem;
+    
+    width: 75%;
+    min-width: 80%;
     font-family: "Tilt Neon";
     font-size: 1.5rem;
     color: var(--pointer_text);
+    padding: 0px 5px 0px 5px;
 }
 #Name{
     font-weight: bolder;
-    font-size: 3rem;
+    font-size: 150%;
 }
