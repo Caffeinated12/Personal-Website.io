@@ -1,29 +1,24 @@
 @font-face {
     font-family: 'Tilt Neon';
-    src: url('TiltNeon-Regular.woff2') format('woff2'),
-    url('TiltNeon-Regular.woff') format('woff');
+    src: url('Fonts/TiltNeon-Regular.woff2') format('woff2'),
+    url('Fonts/TiltNeon-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 [data-theme="light"]{
-    --background_1:white; 
-    --title_text:#db0000;
-    --pointer_text: #de0000;
-    --paragraph_text: #2d270c;
-    --color1: #c6003c;
-    --highlight_1: #f20a50;
-    --backlight_1:#fff7f7
+    --background_1:#fffffd; 
+    --title_text:#3a425b;
+    --highlight_1: #fe5d4d;
+    --backlight_1: #f77c71;
 }
 
 [data-theme="dark"]{
-    --background_1: #1e1324 ;
-    --title_text: #C38200;
-    --pointer_text: #c38200;
-    --paragraph_text: #FFb520;
+    --background_1: #303149 ;
+    --title_text: #fda900;
     --highlight_1: #560682;
-    --backlight_1: #FFB520;
-    --color1: #8420bb ;
+    --backlight_1: #00ffaa73;
+
 }
 
 *{
@@ -33,300 +28,186 @@
     background-color: var(--background_1);
 }
 
-/* Navigation Grid */
-.Nav_Grid{
-    display: grid ;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 70px;
-    grid-template-columns: auto minmax(0px, 1000px) auto auto auto auto;
-    grid-row: auto;
-    column-gap: 10px;
+/* Navigation Bar */
+.NavBar.S, .NavBar.XS { 
+    display: none;
 }
-/* The Dev Text */
-#Dev{
-    height: 50px;
-    width: 160px;
-    min-width: 170px;
-    padding: 5px;
-    margin-left: 20px;
-    display: flex;
+
+.NavBar.FS{
+    display: grid;
+    grid-template-columns: auto auto auto max-content;
+    grid-template-rows: 59px 1px;
+    height: 60px;
+    width: 100%;
+    justify-items: end;
     align-items: center;
-    justify-items: center;
-    align-self: end;
-    justify-self: center;
-    text-decoration: none;
-    color: var(--title_text);
-    font-size: 45px;
+    color: var(--title_text)
+}
+.Main.TitleText{
+    margin-right: auto;
     font-family: 'Tilt Neon';
+    font-size: 39px;
+    padding: 0px 10px 0px 40px;
     text-wrap: nowrap;
 }
-/* Space Between Left Text and Right Text in Nav */
-#space{
-    min-width: 0px;
-    width: 750px;
-    height: 70px;
-    flex-shrink: 3;
-}
-/* About the Navigation Buttons */
-.Nav_Buttons{
+.NavBar.FS .NavButtons{
     display: flex;
+    height: 59px;
+    align-items: center;
+    text-wrap: nowrap;
+    padding: 0px 10px;
+}
+
+.NavBar.FS .NavButtons li{
+    display: flex;
+    list-style: none;
     height: 50px;
-    width: 210px;
-    min-width: fit-content;
+    width: 180px;
     align-items: center;
     justify-content: center;
-    align-self: end;
-    justify-self: center;
-    border-radius: 2rem;
-    color: var(--pointer_text);
-    text-decoration: none;
-    font-size: 30px;
+    padding: 0px 20px;
     font-family: 'Tilt Neon';
-    transition: ease-in;
+    font-size: 18px;
 }
-/* Dynamic Effects of Nav Bar */
-    /* Setup */
-.Nav_Buttons:hover{
-    transition: ease-in-out 0.2s;
-    background-color: var(--highlight_1) ;
-    Color: var(--backlight_1)
-}
-/* Day Night Mode Switch */
-.switchframe{   
+
+.NavBar.FS .NavButtons li a{
     display: flex;
-    align-self: end;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
+    border-radius: 4rem;
     height: 50px;
-    min-width: 120px;
+    width: 180px;
+    text-decoration: none;
+    color: var(--title_text);
 }
-.Switch{
+
+.NavBar.FS .NavButtons li a:hover{
+    transition: ease-in .2s;
+    background-color: var(--backlight_1);
+}
+
+.switch {
+    justify-self: center;
+    margin: 10px 20px;
     position: relative;
-    height: 2rem;
-    width: 4rem;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
-.Switch input{
+  
+.ThemeMode { 
     opacity: 0;
-    height: 0;
     width: 0;
+    height: 0;
 }
-.slider{
+  
+.slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: #e87878;
-    -webkit-transition:  .4s;
-    -moz-transition:  4s;
-    transition: cubic-bezier(.36,.69,.66,1.31) .4s;
-    border-radius: 4rem;
+    height: 34px;
+    width: 60px;
+    border-radius: 2rem;
+    background-color: #ff8181;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
-.slider:before{
+  
+.slider:before {
     position: absolute;
     content: "";
-    height: 1.5rem;
-    width: 1.5rem;
-    left: .25rem;
-    bottom: .25rem;
-    background-color: #ea2929;
-    transition: cubic-bezier(.36,.69,.66,1.31) .2s;
-    border-radius: 1.5rem;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 2rem;
+    background-color: #FF5454;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
-#Theme_Mode:checked + .slider{
-    background-color:#220B6c;
+  
+.ThemeMode:checked + .slider {
+    background-color: #050508;
 }
-#Theme_Mode:checked + .slider:before{
-    -webkit-transform: translateX(2rem);
-    -ms-transform: translateX(2rem);
-    transform: translateX(2rem);
-    background-color: #140a34;
+  
+.ThemeMode:checked + .slider:before {
+    background-color: #626495;
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
-.NavBarSmol{
-    display: none; 
-}
-/*End of Day Night Mode Switch */
 
-/*Navbar for phones */
-@media screen and (max-width: 990px) {
-    .NavBarBig{
+@media screen and (max-width: 1120px) {
+    .NavBar.FS, .NavBar.FS > *{
         display: none;
     }
-    .NavBarSmol{
-        display: block;
+    .NavBar.S{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto auto auto;
+        height: min(9vw ,60px);
+        align-items: center;
     }
-    .Nav_Grid{
-        display: grid ;
-        flex-wrap: nowrap;
-        width: 100%;
-        height: 70px;
-        grid-template-columns: auto minmax(0px, 1000px) auto;
-        grid-row: auto;
-        column-gap: 10px;
+    .Main.TitleText{
+        font-size: min(6vw,39px);
+        padding-left: min(6vw, 40px);
+        color: var(--title_text)
     }
-    .HambContainer{
-        display: flex;
-        height: 69px;
-        width: 90px;
-        align-items: end;
-        justify-content: center;
-    }
-    .HambCheckbox{
-        height: 45px;
-        width: 50px;
+    .HamburgerLabel{
         position: relative;
-        display: flex;
+        height: min(9vw, 60px);
+        width: min(9vw, 60px);
+        margin-left: auto;
+        margin-right:min(3vw, 20px) ;
     }
-    .HambCheckbox input{
-        height: 0;
-        width: 0;
-        opacity: 0;
-    }
-    .HamburgIcon:before{
-        content: ' ';
-        height: 5px;
-        width: 50px;
-        position: absolute;
-        margin-top: -20px;
-        border-radius: 4px;
-        background-color: var(--title_text);
-        transition: cubic-bezier(.16,1.01,.16,1.01) .4s;
-    }
-    .HamburgIcon{
-        height: 5px;
-        width: 50px;
-        align-self: center;
-        border-radius: 4px;
-        background-color: var(--title_text);
-        transition: cubic-bezier(.16,1.01,.16,1.01) .4s;
-    }
-    .HamburgIcon:after{
-        content: ' ';
-        position: absolute;
-        margin-top: 20px;
-        height: 5px;
-        width: 50px;
-        border-radius: 4px;
-        background-color: var(--title_text);
-        transition: cubic-bezier(.16,1.01,.16,1.01) .4s;
-    }
-    #NavShow:checked + .HamburgIcon:before{
-        transform: rotate(-30deg) translate(-9px, 6.25px);
-        width: 45px
-    }
-    #NavShow:checked + .HamburgIcon:after{
-        transform: rotate(30deg) translate(-9px, -6.25px);
-        width: 45px;
-    }
-    #NavShow:checked + .HamburgIcon{
-        width: 0;
-    }
-    .NavStatus{
+    #NavStatus{
         height: 0px;
-        transition: cubic-bezier(.04,.77,.1,.97) .3s;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-    .NavItems{
-        height: 0;
-        pointer-events: none;
+        width: 0px;
         opacity: 0;
-        transition: cubic-bezier(.04,.77,.1,.97) .3s;
-        padding-left: 20px;
-        font-family: "Tilt Neon";
-        text-decoration: none;
-        font-size: 40px;
-        color: var(--pointer_text);
-        align-items: center;
-        overflow: hidden;
     }
-    
-
-    .NavStatus.Toggled{
-        display: flex;
-        flex-direction: column;
-        height: 180px;
-        width: 100%;
-        margin-top: 10px;
+    .Hamburger,.Hamburger:after,.Hamburger:before{
+        content: " ";
+        position: absolute;
+        margin-top: min(1.25vw, 8px);
+        height: min(1vw, 5px);
+        width: min(9vw, 60px); 
+        background-color: #fffffd;
+        border-radius: 2vw; 
+        transition: ease-in .2s;
+        background-color: var(--title_text) ;
     }
 
+    .Hamburger:after{
+        margin-top: min(3vw, 20px) ;
+    }
+
+    .Hamburger:before{
+        margin-top: min(6vw, 40px);
+    }   
+
+    #NavStatus:checked + .Hamburger{
+        transform: rotate(-45deg);
+        margin-top: min(4vw, 25px);
+        transition: ease-in .2s;
+    }
+    #NavStatus:checked + .Hamburger:after{
+        transform: rotate(45deg);
+        transition: ease-in .2s;
+        margin-top: -1vw;
+        margin-left: 3vw;
+        width: 0;   
+    }
+    #NavStatus:checked + .Hamburger:before{
+        transform: rotate(90deg);
+        margin-top: 0px ;
+        transition: ease-in .2s;
+
+    }
+    .NavItems, .switch{
+        display: none;
+    }
     .NavItems.Show{
-        opacity: 1;
-        pointer-events: all;
         display: flex;
-        text-wrap: nowrap;
-        height: 60px;
-        align-items: center;
-        padding-left: 20px;
-        font-family: "Tilt Neon";
-        text-decoration: none;
-        font-size: 40px;
-        color: var(--pointer_text);
     }
-}
 
 
-
-.NavSelectionHide{
-    display: none;
-    height: 0;
-
-}
-
-/* Line Between Navbar and Body */
-#StrikeThroughLine{
-    margin: 19px auto auto auto;
-    width: 50%;
-    background-color: #2d270c;
-    height:1px;
-
-}
-
-/* body and contents */
-.Container-1{
-    top:70; right: 0; left: 0; bottom: 0;
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    align-self: center;
-}
-
-.cont1-item1{
-    height: 300px;
-    width: 300px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#profile{
-    height: 20vw;
-    width: 20vw;
-    min-width: 200px;
-    min-height: 200px;
-    max-width: 250px;
-    max-height:250px ;
-    background-color: var(--highlight_1);
-    border-radius: 50%;
-}
-.cont1-item2{
-    
-    width: 75%;
-    min-width: 80%;
-    font-family: "Tilt Neon";
-    font-size: 1.5rem;
-    color: var(--pointer_text);
-    padding: 0px 5px 0px 5px;
-}
-#Name{
-    font-weight: bolder;
-    font-size: 150%;
 }

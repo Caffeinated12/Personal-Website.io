@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html data-theme="dark">
-
-
     <head>
         <title>Dean Ditching</title>
         <link rel = "stylesheet" href = "styles.css">
@@ -9,66 +7,78 @@
     </head>
 
     <body>
-        <nav class = "NavBarBig">
-            <div class="Nav_Grid">
-                <a id="Dev">The Dev</a>
-                <div id="space"></div>
-                <a class="Nav_Buttons" href="resume.html">Resume</a>
-                <a class="Nav_Buttons" href="Projects.html">Projects</a>
-                <a class="Nav_Buttons" href="test.html">Contact Me</a>
-                <div class="switchframe">
-                    <label class="Switch">
-                        <input type="checkbox" id="Theme_Mode" clicked>
-                        <span class="slider">
-                        </span>
-                    </label>
-                </div>
-            </div>
+        <nav class = "NavBar FS">
+            <a class="Main TitleText">Charles Dean</a>
+            <span id="space"></span>
+            <ul class="NavButtons">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">Projects</a></li>
+                <li><a href="">Resume</a></li>
+                <li><a href="">Contact Me</a></li>
+            </ul>
+                <label class="switch">
+                    <input type="checkbox" class="ThemeMode" id="ThemeMode">
+                    <span class="slider"></span>
+                </label>
             <div id="StrikeThroughLine"></div> 
         </nav>
-        <nav class="NavBarSmol">
-            <div class="Nav_Grid">
-                <a id="Dev">The Dev</a>
-                <div class="space"></div>
-                <div class="HambContainer">
-                    <label class="HambCheckbox">
-                        <input type="checkbox" id="NavShow" autocomplete="off">
-                        <span class="HamburgIcon"></span>
-                    </label>
-                </div>
-            </div>
-            <div class="NavStatus" id="NavSelect">
-                <a class="NavItems" id="navitems" href="resume.html">Resume</a>
-                <a class="NavItems" id="navitems" href="Projects.html">Projects</a>
-                <a class="NavItems" id="navitems" href="test.html">Contact Me</a>
-            </div>
-            <div id="StrikeThroughLine"></div>
+        
+        <nav class="NavBar S">  
+            <a class="Main TitleText">Charles Dean</a>
+            <label class="HamburgerLabel">
+                <input id="NavStatus" type="checkbox">
+                <span class="Hamburger"></span>
+            </label>
+            
+            <ul class="NavButtons S" id="NavButtonsAccordion">
+                <li class="NavItems"><a href="index.html">Home</a></li>
+                <li class="NavItems"><a href="">Projects</a></li>
+                <li class="NavItems"><a href="">Resume</a></li>
+                <li class="NavItems"><a href="">Contact Me</a></li>
+                <label class="switch NavItems">
+                    <input type="checkbox" class="ThemeMode" id="ThemeModeS">
+                    <span class="slider"></span>
+                </label>
+            </ul>
         </nav>
 
-        <div class = "Container-1">
-            <div class="cont1-item1">
+
+
+<!--        <div class = "About">
+            <div class="Container-About">
+                <div class="cont1-item1">
                 <img id="profile" src="Image.png" />
-            </div>
-            <div class="cont1-item2">
-                <p id="Name">Name. Name. name</p>
-                <p> Front-End Developer</p>
-                <br>
-                <p>
-                I first stumbled upon programming years ago in high-school.
-                It was with an Arduino board,
-                In awe with how much I can do with programming,
-                I decided to learn programming as a hobby.
-                I started building tiny private projects in 2019.</p>
-                <br>
-                <p>
-                My present goal in the meantime is increasing my experience.
-                </p>
-            </div>
-            <div id="cont1-item2">
-                <div class="square">
+                </div>
+                <div class="cont1-item2">
+                    <p id="Name">Name. Name. name</p>
+                    <p> Front-End Developer</p>
+                    <br>
+                    <p>
+                    I first stumbled upon programming years ago in high-school.
+                    It was with an Arduino board,
+                    In awe with how much I can do with programming,
+                    I decided to learn programming as a hobby.
+                    I started building tiny private projects in 2019.</p>
+                    <br>
+                    <p>
+                    My present goal in the meantime is increasing my experience.
+                    </p>
+                    <br>
+                    <p>
+                    In my pastime I usually 
+                    </p>
+                </div>
+                <div class="cont1-item3">
+
+                    <div><img src="" alt=""></div>
+                    <div><img src="" alt=""></div>
+                    <div><img src="" alt=""></div>
+                </div>
             </div>
         </div>
+        <div class="ProjectsContainer">
 
+        </div> -->
 
     <script src="main.js"></script>
     </body>

@@ -1,42 +1,29 @@
-var LocalTheme = localStorage.getItem("theme");
+let LocalTheme = localStorage.getItem("theme");
 
-var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+let systemDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-var htmlELement = document.documentElement.getAttribute("data-theme");
+let htmlELement = document.documentElement.getAttribute("data-theme");
 
-var button = document.getElementById("Theme_Mode");
+let button = document.getElementById("ThemeMode");
+let button_2 = document.getElementById("ThemeModeS")
 
-var initial_theme = LocalTheme || (systemDark.matches ? "dark" : "light");
+let initial_theme = LocalTheme || (systemDark.matches ? "dark" : "light");
 
 document.documentElement.setAttribute("data-theme", initial_theme);
 
-button.checked = initial_theme === "dark";
+button_2.checked = button.checked = initial_theme === "dark";
 
 function changetheme(){
     currenttheme = document.documentElement.getAttribute("data-theme");
     newtheme = currenttheme === 'dark' ? 'light' : "dark";
     document.documentElement.setAttribute("data-theme", newtheme)
     localStorage.setItem("theme", newtheme);
-    button.checked = newtheme === "dark";
+    button_2.checked = button.checked = newtheme === "dark";
 }
+
 button.addEventListener("click", changetheme);
+button_2.addEventListener("click", changetheme);
 
-var hamburgerbtn = document.getElementById("NavShow")
-var navbar = document.getElementById("NavSelect")
-var navitems = document.getElementsByClassName('NavItems')
-
-function showNavSelect(){
-    if((hamburgerbtn.checked === true) || (navbar.className === "NavStatus")){
-        navbar.className += " Toggled"
-        for(let i = 0; i < 3; i++){
-            navitems[i].className += " Show"
-        }
-    }else {
-        navbar.className = "NavStatus"
-        for(let i = 0; i < 3; i++){
-            navitems[i].className = "NavItems"
-        }
-    }
-}
-
-hamburgerbtn.addEventListener("click", showNavSelect)
+let HamburgerButton = document.getElementById("");
+let NavButtons = document.getElementById("NavButtonsAccordion");
+let NavItems = document.getElementsByClassName("")
