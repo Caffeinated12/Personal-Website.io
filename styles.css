@@ -26,6 +26,7 @@
     padding: 0px;
     box-sizing: border-box;
     background-color: var(--background_1);
+    transition: ease-in .2s;
 }
 
 /* Navigation Bar */
@@ -94,7 +95,7 @@
     width: 60px;
     height: 34px;
 }
-  
+
 .ThemeMode { 
     opacity: 0;
     width: 0;
@@ -153,61 +154,128 @@
         color: var(--title_text)
     }
     .HamburgerLabel{
+        display: flex;
         position: relative;
         height: min(9vw, 60px);
         width: min(9vw, 60px);
         margin-left: auto;
-        margin-right:min(3vw, 20px) ;
+        margin-right:min(3vw, 20px);
+        align-items: start;
     }
     #NavStatus{
         height: 0px;
         width: 0px;
         opacity: 0;
     }
-    .Hamburger,.Hamburger:after,.Hamburger:before{
-        content: " ";
+    .Hamburger{
         position: absolute;
-        margin-top: min(1.25vw, 8px);
-        height: min(1vw, 5px);
-        width: min(9vw, 60px); 
+        height: 8%;
+        width: 100%; 
         background-color: #fffffd;
         border-radius: 2vw; 
         transition: ease-in .2s;
         background-color: var(--title_text) ;
+        margin-top: 15%
     }
+
+    .Hamburger:after, .Hamburger:before{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        content: " ";
+        border-radius: 2vw;
+        transition: ease-in .2s;
+        background-color: var(--title_text);
+    } 
 
     .Hamburger:after{
-        margin-top: min(3vw, 20px) ;
+        margin-top: 30%;
     }
-
     .Hamburger:before{
-        margin-top: min(6vw, 40px);
-    }   
+        margin-top: 60%;
+    }
 
     #NavStatus:checked + .Hamburger{
-        transform: rotate(-45deg);
-        margin-top: min(4vw, 25px);
-        transition: ease-in .2s;
+        transform: rotate(-30deg) translate(25%, 300%);
+        width: 70%;
+
     }
     #NavStatus:checked + .Hamburger:after{
-        transform: rotate(45deg);
-        transition: ease-in .2s;
-        margin-top: -1vw;
-        margin-left: 3vw;
-        width: 0;   
+        transform: rotate(30deg) translate(0%, -200%);
+        width: 0;
     }
     #NavStatus:checked + .Hamburger:before{
-        transform: rotate(90deg);
-        margin-top: 0px ;
-        transition: ease-in .2s;
-
+        transform: rotate(60deg) translate(-30%, 75%);
     }
+
     .NavItems, .switch{
-        display: none;
+        height: 0;
+        opacity: 0;
+        transition: ease-in .2s;
     }
-    .NavItems.Show{
+    .NavItems a, .NavItems.Show a{
+        text-decoration: none;
+        color: var(--title_text);
+
+    }
+
+    .NavButtons.S{
         display: flex;
+        flex-direction: column;
+        height: min(200px, 40vw);
+        list-style: none;
     }
 
+    .NavItems.Show.switch, .NavItems.Show{
+        opacity: 1;
+        position: relative;
+        display: block;
+        margin: 0px 0px 0px min(6vw, 40px);
+        width: 100%;
+        height: 20%;
+        font-size: min(4vw, 20px);
+        font-family: 'Tilt Neon';
+    }
 
+    .ThemeMode { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+      
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        height: 100%;
+        width: min(70px, 25%);
+        border-radius: 2rem;
+        background-color: #ff8181;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+      
+    .slider:before {
+        position: absolute;
+        content: " ";
+        height: 75%;
+        width: 40%;
+        bottom: 15%;
+        left: 10%;
+        margin-top: 100%;
+        border-radius: 100%;
+        background-color: #FF5454;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+      
+    .ThemeMode:checked + .slider {
+        background-color: #050508;
+    }
+      
+    .ThemeMode:checked + .slider:before {
+        background-color: #626495;
+        transform: translateX(100%);
+    }
+    
+    
 }

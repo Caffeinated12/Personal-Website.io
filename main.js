@@ -24,6 +24,31 @@ function changetheme(){
 button.addEventListener("click", changetheme);
 button_2.addEventListener("click", changetheme);
 
-let HamburgerButton = document.getElementById("");
+let HamburgerButton = document.getElementById("NavStatus");
 let NavButtons = document.getElementById("NavButtonsAccordion");
-let NavItems = document.getElementsByClassName("")
+let NavItems = document.getElementsByClassName("NavItems")
+
+function ShowNavItems(){
+    if(HamburgerButton.checked){
+        for(let i=0; i < 5; i++){
+            if(i === 4){
+                NavItems[i].className += " Show"
+            }else{
+                NavItems[i].className += " Show"
+            }
+        }
+    }else{
+        for(let i=0; i < 5; i++){
+            if(i === 4){
+                NavItems[i].className = "switch NavItems"
+            }else{
+                NavItems[i].className = "NavItems"
+            }
+        }    
+    }
+}
+
+HamburgerButton.addEventListener("click", ShowNavItems)
+
+
+
