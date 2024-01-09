@@ -25,7 +25,7 @@ button.addEventListener("click", changetheme);
 button_2.addEventListener("click", changetheme);
 
 let HamburgerButton = document.getElementById("NavStatus");
-let NavButtons = document.getElementById("NavButtonsAccordion");
+let Body = document.getElementById("BodyDiv");
 let NavItems = document.getElementsByClassName("NavItems")
 
 function ShowNavItems(){
@@ -34,9 +34,10 @@ function ShowNavItems(){
             if(i === 4){
                 NavItems[i].className += " Show"
             }else{
-                NavItems[i].className += " Show"
+                    NavItems[i].className += " Show"
             }
         }
+        Body.className += "Fall"
     }else{
         for(let i=0; i < 5; i++){
             if(i === 4){
@@ -45,6 +46,7 @@ function ShowNavItems(){
                 NavItems[i].className = "NavItems"
             }
         }    
+        Body.className = "Body"
     }
 }
 
