@@ -37,7 +37,7 @@ function ShowNavItems(){
                     NavItems[i].className += " Show"
             }
         }
-        Body.className += "Fall"
+        Body.className += " Fall"
     }else{
         for(let i=0; i < 5; i++){
             if(i === 4){
