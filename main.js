@@ -34,7 +34,7 @@ function ShowNavItems(){
             if(i === 4){
                 NavItems[i].className += " Show"
             }else{
-                    NavItems[i].className += " Show"
+                NavItems[i].className += " Show"
             }
         }
         Body.className += " Fall"
@@ -52,5 +52,16 @@ function ShowNavItems(){
 
 HamburgerButton.addEventListener("click", ShowNavItems)
 
+let skillbutton = document.getElementById("Skills")
+let Icons = document.getElementsByClassName("AboutIcons")[0]
 
+function ShowSkills(){
+    if(skillbutton.checked){
+        Icons.className += " Show"
+    }
+    else{
+        Icons.className = "AboutIcons"
+    }
+}
 
+skillbutton.addEventListener("click", ShowSkills)
