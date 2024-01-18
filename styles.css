@@ -94,6 +94,7 @@
     width: 180px;
     text-decoration: none;
     color: var(--subtext);
+    
 }
 
 .NavBar.FS .NavButtons li a:hover{
@@ -291,15 +292,15 @@
     width: 80vw;
     display: grid;
     grid-template-columns: min(55vw,550px) auto auto;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: min(20vw, 225px) min(10vw,100px) auto auto min(150px, 20vw);
     align-items: center;
 }
 .AboutName{
     grid-row:  1/ 2;
     grid-column: 1/2;
-    height: min(75px, 4vw);
-    width: min(550px, 50vw);
-    font-size: min(4vw, 40px);
+    height: min(75px, 15vw);
+    width: min(550px, 60vw);
+    font-size: min(5vw, 40px);
     font-family: "Tilt Neon";
     color: var(--title_text);
 }
@@ -324,41 +325,47 @@
     animation: Wave 4s infinite;
 }
 .AboutIcons{
-    height: 100px;
+    height: min(10vw,100px);
     display: flex;
     list-style: none;
     grid-row: 1/2;  
-    grid-column: 2/4;
+    grid-column: 3/4;
     justify-content: end;
     overflow: hidden;
 }
 .AboutIcons li{
-    display: grid;
-    height: 80px;
-    width: 80px;
-    transform: translate(400px);
+    height: min(10vw, 80px);
+    width: min(10vw,80px);
+    transform: translate(min(50vw, 400px));
     overflow: visible;
+}
+.AboutIcons li:not(:first-child){
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.AboutIcons li:first-child{ 
+    display: grid;
 }
 .AboutIcons li:first-child, .AboutIcons.Show li:first-child{
-    width: 40px;
-}
+    width: min(4.75vw, 40px);
+}       
 .AboutIcons.Show li{
-    height: 80px;
-    width: 80px;
     transform: translate(0px);
-    overflow: visible;
 }
 
 .AboutIcons li img{
-    height: 100%;
-    width: 100%;
-    overflow: visible;
+    height: 90%;
+    width: 90%;
 }
 
 .ShowSkills.Label{
+    display: flex;
     background-color: var(--backlight_2);
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    align-items: center;
+    justify-content: center;
 }
 #Skills{
     height: 0;
@@ -368,15 +375,53 @@
 .arrow{
     width: 0; 
     height: 0; 
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 20px solid var(--title_text);
-    margin-top: 30%;
-    margin-left: 30%;
+    border-top: min(1.5vw, 10px) solid transparent;
+    border-bottom: min(1.5vw, 10px) solid transparent;
+    border-left: min(2.5vw, 20px) solid var(--title_text);
     background-color: var(--backlight_2);
 }
 
 .AboutIcons li:not(:first-child):hover img{
-    height: 10%;
-    width: 10%;
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 1240px)  {
+    .AboutIcons{
+        grid-row: 2/3;
+        grid-column: 1/4;
+    }
+}
+
+.AboutContent{
+    grid-row: 3/4;
+    grid-column: 1/4;
+    font-family: 'Tilt Neon';
+    color: var(--title_text);
+}
+.AboutContent p:first-child, .AboutContent p:nth-child(3){
+    font-size: min(4vw, 1.75rem);
+}
+.AboutContent p{
+    font-size: min(3vw, 1.25rem);
+}
+.triangleforprojects{
+    justify-self: center;
+    grid-row: 5/6;
+    grid-column: 1/4;
+    height: 0;
+    width: 0;
+    border-right: 40vw solid transparent;
+    border-left: 40vw solid transparent;
+    border-top: min(140px, 18vw) solid gray;
+}
+.sceondtriangle{
+    justify-self: center;
+    grid-row: 5/6;
+    grid-column: 1/4;
+    height: 0;
+    width: 0;
+    border-right: 40vw solid transparent;
+    border-left: 40vw solid transparent;
+    border-top: min(140px, 18vw) solid gray;
 }
