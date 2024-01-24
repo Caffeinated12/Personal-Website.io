@@ -292,7 +292,7 @@
     width: 80vw;
     display: grid;
     grid-template-columns: min(55vw,550px) auto auto;
-    grid-template-rows: min(20vw, 225px) min(10vw,100px) auto auto min(150px, 20vw);
+    grid-template-rows: min(20vw, 225px) min(10vw,100px) auto min(150px, 20vw);
     align-items: center;
 }
 .AboutName{
@@ -305,7 +305,7 @@
     color: var(--title_text);
 }
 
-@-webkit-keyframes Wave{
+@keyframes Wave{
     0%{transform: rotate(-30deg);}
     10%{transform: rotate(30deg);}
     20%{transform: rotate(-30deg);}
@@ -313,7 +313,6 @@
     40%{transform: rotate(-30deg);}
     50%{transform: rotate(-30deg);}
     100%{transform: rotate(-30deg);}
-
 }
 .Emoji, .Emoji:hover{
     rotate: -10deg;
@@ -329,7 +328,7 @@
     display: flex;
     list-style: none;
     grid-row: 1/2;  
-    grid-column: 3/4;
+    grid-column: 2/4;
     justify-content: end;
     overflow: hidden;
 }
@@ -353,7 +352,6 @@
 .AboutIcons.Show li{
     transform: translate(0px);
 }
-
 .AboutIcons li img{
     height: 90%;
     width: 90%;
@@ -392,7 +390,6 @@
         grid-column: 1/4;
     }
 }
-
 .AboutContent{
     grid-row: 3/4;
     grid-column: 1/4;
@@ -406,22 +403,37 @@
     font-size: min(3vw, 1.25rem);
 }
 .triangleforprojects{
-    justify-self: center;
-    grid-row: 5/6;
+    height: 10v;
+    grid-row: 4/5;
     grid-column: 1/4;
-    height: 0;
-    width: 0;
-    border-right: 40vw solid transparent;
-    border-left: 40vw solid transparent;
-    border-top: min(140px, 18vw) solid gray;
+    justify-content: center;
 }
-.sceondtriangle{
-    justify-self: center;
-    grid-row: 5/6;
+.triangleforprojects p{
+    justify-items: center;
+    position: absolute;
+    background-color: transparent;
+}
+.triangleforprojects svg{
+    height: min(120px, 18vw);
+    width: 80vw;
+    fill: var(--backlight_2);
+}
+#Projectstitle{
+    display: flex;
+    position: relative;
+    grid-row: 4/5;
     grid-column: 1/4;
-    height: 0;
-    width: 0;
-    border-right: 40vw solid transparent;
-    border-left: 40vw solid transparent;
-    border-top: min(140px, 18vw) solid gray;
+    justify-content: center;
+    background-color: transparent;
+    font-size: min(4vw, 1.75rem);
+    font-family: 'Tilt Neon';
+    color: var(--title_text);
+    margin-left: 10px;
+}
+#Projectstitle p:hover{
+    font-size: calc(1.2*(min(4vw, 1.75rem)));
+}
+
+.Projects{
+    height: 90vh;
 }
